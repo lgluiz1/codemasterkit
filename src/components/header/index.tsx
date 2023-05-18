@@ -6,6 +6,13 @@ import Nav from "./nav";
 
 export default function Header() {
 
+  const linkUrl = 'https://github.com/lgluiz1/codemasterkit';
+
+  const openLink = () => {
+    window.open(linkUrl, '_blank');
+
+  }
+
   return (
     <>
       <div className={style.header}>
@@ -20,7 +27,7 @@ export default function Header() {
         <Btn
           width="200px"
           height="50px"
-          onClick={() => console.log("clicou")}
+          onClick={openLink}
         > <GitHubIcon/> GitHub</Btn>
 
       </div>
