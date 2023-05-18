@@ -1,0 +1,125 @@
+.logo{
+    width: 100px;
+    height: 130px;
+    background: linear-gradient(270deg, #074d94, #122177, #2a37bf, #2a2252);
+    background-size: 800% 800%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    -webkit-animation: AnimationExternal 5s ease infinite;
+    -moz-animation: AnimationExternal 5s ease infinite;
+    -o-animation: AnimationExternal 5s ease infinite;
+    animation: AnimationExternal 5s ease infinite;
+    position: relative;
+}
+
+@-webkit-keyframes AnimationExternal {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationExternal {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes AnimationExternal {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationExternal {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+.external{
+    background-color: #fff;
+    width: 60px;
+    height: 90px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.spamTop{
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    height: 10px;
+    width: 40px;
+    right: -20px;
+    top: 20px;
+    z-index: 1;
+}
+.spambottom{
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    height: 10px;
+    width: 40px;
+    left: -10px;
+    bottom: 20px;
+    z-index: 1;
+}
+.divCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    width: 45px;
+    height: 75px;
+    background: linear-gradient(270deg, #ffb800, #e3dd08, #7a5a05, #f29e00);
+    background-size: 800% 800%;
+    -webkit-animation: AnimationCenter 10s ease infinite;
+    -moz-animation: AnimationCenter 10s ease infinite;
+    -o-animation: AnimationCenter 10s ease infinite;
+    animation: AnimationCenter 10s ease infinite;
+}
+
+@-webkit-keyframes AnimationCenter {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationCenter {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes AnimationCenter {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationCenter {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+.center{
+    background-color: #fff;
+    width: 9px;
+    height: 35px;
+}
+.spamCenterTop{
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    height: 10px;
+    width: 25px;
+    right: 0px;
+    top: 28px;
+    z-index: 1;
+}
+.spamCenterBottom{
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    height: 10px;
+    width: 25px;
+    left: 8px;
+    bottom: 27px;
+    z-index: 1;
+}

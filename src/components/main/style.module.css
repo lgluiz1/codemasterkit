@@ -1,0 +1,49 @@
+.showcase {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3%;
+  margin-top: 5%;
+}
+h1{
+  text-align: center;
+  margin-top: 3%;
+}
+.componentArea {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  min-width: 300px;
+  min-height: 270px;
+  height: 15vw;
+  width: 20vw;
+  border-radius: 10px;
+  background: #c3c3c3;
+  transition: 0.5s all;
+}
+
+.componentArea > div {
+  width: calc(100% / 3);
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.componentArea:hover{
+  scale: 1.1;
+}
+.btnCode{
+  position: absolute;
+  top: 0;
+}
+.menuTag{
+  border: 1px solid #c3c3c3 !important;
+}
+.menuTag:hover{
+  border: 1px solid #000 !important;
+}

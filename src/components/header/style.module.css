@@ -1,0 +1,59 @@
+.header{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(270deg, #3c23f6, #7790ff, #462d8bdb);
+    background-size: 600% 600%;
+    padding: 0 0 20px 0px;
+    -webkit-animation: AnimationHeader 7s ease infinite;
+    -moz-animation: AnimationHeader 7s ease infinite;
+    -o-animation: AnimationHeader 7s ease infinite;
+    animation: AnimationHeader 7s ease infinite;
+}
+
+@-webkit-keyframes AnimationHeader {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationHeader {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes AnimationHeader {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationHeader {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.textHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    gap: 30px;
+}
+.textHeader h1{
+    color: #fff;
+    font-size: calc(2.5vw + 12px);
+    text-transform: uppercase;
+}
+.textHeader p{
+    color: #c3c3c3;
+    font-size: calc(1vw + 12px);
+    text-align: center;
+}
+
+@media (max-width: 768px){
+    
+}

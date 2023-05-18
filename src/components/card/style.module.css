@@ -1,0 +1,17 @@
+.card {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column !important;
+    max-width: 100% !important;
+    min-width: 300px !important;
+    min-height: 270px !important;
+    height: 15vw !important;
+    width: 20vw !important;
+    border-radius: 10px !important;
+    background: #c3c3c3 !important;
+    transition: 0.5s all !important;
+    position: relative !important;
+    box-shadow: 0px 32px 100px 32px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1) !important;
+  }
+  
