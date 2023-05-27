@@ -25,6 +25,7 @@ interface BtnProps extends React.PropsWithChildren {
   hoverBorderColor?: string; // Cor da borda no hover
   hoverBackgroundColor?: string; // Cor do fundo no hover
   cursor?: string;
+  transition?: string;
 }
 
 export default function Btn(props: BtnProps) {
@@ -46,6 +47,7 @@ export default function Btn(props: BtnProps) {
     justifyContent: props.justifyContent || "center",
     gap: props.gap || "5px",
     cursor: props.cursor || "pointer",
+    transition: props.transition || "0.5s all",
   });
 
   const handleMouseOver = () => {
@@ -53,7 +55,8 @@ export default function Btn(props: BtnProps) {
       ...buttonStyle,
       color: props.hoverTextColor || buttonStyle.color,
       borderColor: props.hoverBorderColor || buttonStyle.borderColor,
-      backgroundColor: props.hoverBackgroundColor || buttonStyle.backgroundColor,
+      backgroundColor:
+        props.hoverBackgroundColor || buttonStyle.backgroundColor,
     });
   };
 

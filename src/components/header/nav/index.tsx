@@ -31,6 +31,8 @@ export default function Nav() {
               color="white"
               fontSize={15}
               key={index}
+              hoverBackgroundColor="#fff"
+              hoverTextColor="#000"
             >
               {item}
             </Btn>
