@@ -1,11 +1,11 @@
-import style from './style.module.css';
+import React, { useState } from "react";
 
-interface BntProps extends React.PropsWithChildren {
+interface BtnProps extends React.PropsWithChildren {
   className?: string;
   color?: string;
   backgroundColor?: string;
-  width?: string;
-  height?: string;
+  width?: string | number;
+  height?: string | number;
   fontSize?: number;
   text?: string;
   index?: number;
@@ -17,39 +17,71 @@ interface BntProps extends React.PropsWithChildren {
   top?: string;
   left?: string;
   display?: string;
+  alignItems?: string;
+  justifyContent?: string;
+  gap?: string;
   onClick?: () => void;
   hoverTextColor?: string; // Cor do texto no hover
   hoverBorderColor?: string; // Cor da borda no hover
   hoverBackgroundColor?: string; // Cor do fundo no hover
+  cursor?: string;
 }
 
-export default function Btn(props: BntProps) {
-  const buttonStyle = {
-    borderRadius: props.borderRadius || "none",
+export default function Btn(props: BtnProps) {
+  const [buttonStyle, setButtonStyle] = useState<React.CSSProperties>({
+    borderRadius: props.borderRadius || "10px",
     border: props.border || "none",
     backgroundColor: props.backgroundColor || "white",
     width: props.width || 200,
     height: props.height || 50,
     color: props.color || "black",
     fontSize: props.fontSize || 20,
-    position: props.position, // Corrigido: "position" em vez de "positon"
+    position: props.position,
     bottom: props.bottom,
     right: props.right,
     top: props.top,
     left: props.left,
-    display: props.display,
+    display: props.display || "flex",
+    alignItems: props.alignItems || "center",
+    justifyContent: props.justifyContent || "center",
+    gap: props.gap || "5px",
+    cursor: props.cursor || "pointer",
+  });
+
+  const handleMouseOver = () => {
+    setButtonStyle({
+      ...buttonStyle,
+      color: props.hoverTextColor || buttonStyle.color,
+      borderColor: props.hoverBorderColor || buttonStyle.borderColor,
+      backgroundColor: props.hoverBackgroundColor || buttonStyle.backgroundColor,
+    });
   };
 
-  const hoverStyle = {
-    ...(props.hoverTextColor && { color: props.hoverTextColor || "#fff" }),
-    ...(props.hoverBorderColor && { borderColor: props.hoverBorderColor }),
-    ...(props.hoverBackgroundColor && { backgroundColor: props.hoverBackgroundColor }),
+  const handleMouseOut = () => {
+    setButtonStyle({
+      ...buttonStyle,
+      color: props.color || buttonStyle.color,
+      backgroundColor: props.backgroundColor || buttonStyle.backgroundColor,
+    });
+  };
+
+  const handleClick = () => {
+    if (props.onClick) {
+      props.onClick();
+    }
   };
 
   return (
-    <button className={`${style.btn} ${props.className}`} style={{ ...buttonStyle, ...hoverStyle }} onClick={props.onClick}>
-      {props.children} {props.text}
-    </button>
+    <>
+      <button
+        style={buttonStyle}
+        className={props.className}
+        onClick={handleClick}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+      >
+        {props.children} {props.text}
+      </button>
+    </>
   );
 }
-
