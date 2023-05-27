@@ -27,7 +27,12 @@ export default function Header() {
         <Btn
           width="200px"
           height="50px"
+          color="#000"
+          backgroundColor="#fff"
           onClick={openLink}
+          hoverBorderColor="2px solid #fff"
+          hoverTextColor="#fff"
+          hoverBackgroundColor="transparent"
         > <GitHubIcon/> GitHub</Btn>
 
       </div>

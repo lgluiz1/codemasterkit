@@ -54,7 +54,7 @@ export default function Btn(props: BtnProps) {
     setButtonStyle({
       ...buttonStyle,
       color: props.hoverTextColor || buttonStyle.color,
-      borderColor: props.hoverBorderColor || buttonStyle.borderColor,
+      border: props.hoverBorderColor || buttonStyle.border,
       backgroundColor:
         props.hoverBackgroundColor || buttonStyle.backgroundColor,
     });
