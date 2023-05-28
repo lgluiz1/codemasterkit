@@ -5,28 +5,28 @@ import PowerButton from "../showcase/Hamburge/PowerButton";
 import Card from "../card";
 import Container from "../Container";
 
-const componentes = [
+const componentes: Array<{ title: string; component: JSX.Element, code: string }> = [
   {
     title: "Hamburgue",
     component: <Hamburger className="HamburgeExemple"></Hamburger>,
+    code: Hamburger.toString(),
   },
   {
     title: "PowerButton",
     component: <PowerButton />,
+    code: PowerButton.toString(),
+
   },
   {
     title: "Btn",
-    component: <Btn text="Button" />,
+    component: <Btn text="Button" hoverBackgroundColor="transparent" backgroundColor="#fff" hoverBorderColor="1px solid #fff" hoverTextColor="#fff" color="#000"/>,
+    code: Btn.toString(),
   },
-  
+
   // adicione mais componentes aqui
 ];
 
 export default function Main() {
-  const componentAreas = componentes.map((componente, ) => (
-    componente.component
-  ));
-
   const ListMenu = [
     "All",
     "Buttons",
@@ -37,7 +37,6 @@ export default function Main() {
     "Inputs",
     "Forms",
   ];
-  
 
   return (
     <>
@@ -56,10 +55,13 @@ export default function Main() {
             text={item}
             color="#000"
             backgroundColor="transparent"
-            hoverBorderColor ="#000"
+            hoverBackgroundColor="#7790ff"
+            hoverTextColor="#fff"
             fontSize={15}
             borderRadius="0"
-            border="1px solid #000"
+            border="none"
+            width="140px"
+            height="40px"
           />
         ))}
       </Container>
@@ -72,18 +74,19 @@ export default function Main() {
         height="100%"
         flexWrap="wrap"
         gap="3%"
-        marginTop="-6%"        
+        marginTop="-6%"
         zIndex={-99999}
       >
-        {componentAreas.map((componentArea, index) => (
+        {componentes.map((item, index) => (
           <Card
             key={index}
             classeName={style.btnCode}
             width="20%"
             height="15vw"
             marginTop="8%"
+            value={`${item.code}`}
           >
-            {componentArea}
+            {item.component}
           </Card>
         ))}
       </Container>

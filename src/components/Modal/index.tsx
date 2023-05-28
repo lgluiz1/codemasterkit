@@ -2,18 +2,7 @@ import { useState, CSSProperties, useRef, useEffect } from "react";
 import Btn from "../buttons/gitbuttom";
 import CloseIcon from "@mui/icons-material/Close";
 
-const styleModal: CSSProperties = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  zIndex: "1000",
-  backgroundColor: "rgba(0,0,0,0.1)",
-  width: "100%",
-  height: "100%",
-};
-
-interface ModalProps {
+export interface ModalProps {
   isOpen?: boolean;
   onClose?: () => void;
   children?: React.ReactNode;
@@ -32,34 +21,18 @@ interface ModalProps {
   showCloseButton?: boolean; // Propriedade opcional para controlar a exibição do botão de fechar
 }
 
-export default function Modal({
-  isOpen,
-  onClose,
-  className,
-  position,
-  top,
-  left,
-  transform,
-  zIndex,
-  backgroundColor,
-  opacity,  
-  width,
-  height,  
-  showCloseButton,
-  
-}: ModalProps) {
+export default function Modal(props: ModalProps) {
   const modalStyle: CSSProperties = {
-    position: position || ("fixed" && "relative"),
-    top: top || "",
-    left: left || "",
-    transform: transform || "",
-    zIndex: zIndex || "",
-    backgroundColor: backgroundColor || "",
-    width: width || "",
-    height: height || "",
-    transition: "0.5s all",
-    opacity: opacity || " ",
-    
+    position: props.position || ("fixed" && "relative"),
+    top: props.top || "50%",
+    left: props.left || "50%",
+    transform: props.transform || "translate(-50%, -50%)",
+    zIndex: props.zIndex || "1000",
+    backgroundColor: props.backgroundColor || "rgba(0,0,0,0.1)",
+    width: props.width || "100%",
+    height: props.height || "100%",
+    transition: props.transition || "0.5s all",
+    opacity: props.opacity || " ",
   };
 
   const modalRef = useRef<HTMLDivElement>(null);
@@ -70,71 +43,55 @@ export default function Modal({
         modalRef.current &&
         !modalRef.current.contains(event.target as Node)
       ) {
-        onClose?.();
+        props.onClose?.();
       }
     };
 
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+    props.isOpen
+      ? document.addEventListener("mousedown", handleClickOutside)
+      : document.removeEventListener("mousedown", handleClickOutside);
+  }, [props.isOpen, props.onClose]);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen, onClose]);
-
-  if (isOpen) {
-    return (
-      <div
-        style={{ ...styleModal, ...modalStyle }}
-        className={className}
-        ref={modalRef}
-      >
-        {/* Conteúdo do modal */}
-        {showCloseButton && (
+  return props.isOpen ? (
+    <div style={modalStyle} className={props.className} ref={modalRef}>
+      {/* Conteúdo do modal */}
+      {props.showCloseButton && (
+        <>
           <Btn
-            onClick={onClose}
+            onClick={props.onClose}
             className="btnCloseModal"
-            backgroundColor=""
+            backgroundColor="transparent"
             border="none"
             hoverBorderColor="none"
             borderRadius="0"
             position="absolute"
-            top="0"
-            right="0"
-            width="0"
-            height="0"
+            top="0px"
+            right="0px"
+            width="20px"
+            height="20px"
+            hoverBackgroundColor="red"
           >
-            <CloseIcon />
+            <CloseIcon sx={{ color: "white" }} />
           </Btn>
-        )}
-      </div>
-    );
-  }
-
-  return null;
+          <div> {props.text}</div>
+        </>
+      )}
+    </div>
+  ) : null;
 }
 
 export function ComponentCard() {
   const [isModalOpen, setModalOpen] = useState(false);
 
-  const viewComponentCode = () => {
-    setModalOpen(true);
-  };
-
-  const closeComponentCode = () => {
-    setModalOpen(false);
-  };
-
   return (
     <div>
       <h1>Component Card</h1>
-      <button onClick={viewComponentCode}>Ver Código</button>
+      <button onClick={() => setModalOpen(true)}>Ver Código</button>
 
       {isModalOpen && (
         <Modal
           isOpen={isModalOpen}
-          onClose={closeComponentCode}
+          onClose={() => setModalOpen(false)}
           showCloseButton={true} // Defina como false para ocultar o botão de fechar
         />
       )}

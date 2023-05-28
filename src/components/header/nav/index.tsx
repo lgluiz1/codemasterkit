@@ -25,7 +25,7 @@ export default function Nav() {
         <div className={style.menu}>
           {list.map((item, index) => (
             <Btn
-              width="140px"
+              width="100px"
               height="40px"
               backgroundColor="transparent"
               color="white"
@@ -50,7 +50,7 @@ export default function Nav() {
             className="ModalMenu"
             showCloseButton={false}
             width="100%"
-            height="100%"
+            height="100Vh"
             top="11%"
             backgroundColor="rgba(0,0,0,0.800)"
             zIndex="99999"

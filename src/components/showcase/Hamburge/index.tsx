@@ -1,5 +1,5 @@
-import React from 'react';
-import style from './style.module.css';
+import React from "react";
+import style from "./style.module.css";
 
 interface HamburgerProps {
   className?: string;
@@ -17,7 +17,7 @@ interface HamburgerProps {
   right?: string;
   top?: string;
   left?: string;
-  display?:string;
+  display?: string;
   onClick?: () => void;
 }
 
@@ -60,11 +60,15 @@ const Hamburger: React.FC<HamburgerProps> = (props) => {
   const hamburgerSpanStyle = {
     background: backgroundColor || "#fff",
     width: "100%",
-    height: "4px"
+    height: "4px",
   };
 
   return (
-    <label className={`${style.burger} ${className}`} style={hamburgerStyle} htmlFor={`burger-${index}`}>
+    <label
+      className={`${style.burger} ${className}`}
+      style={hamburgerStyle}
+      htmlFor={`burger-${index}`}
+    >
       <input type="checkbox" id={`burger-${index}`} onClick={onClick} />
       <span style={hamburgerSpanStyle}></span>
       <span style={hamburgerSpanStyle}></span>
